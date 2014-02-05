@@ -31,6 +31,7 @@
           target: jar                      
          - - - - - - - - - - - - - - - - - -->
     <target name="jar">
+    	<mkdir dir="bin"/>
     	<javac srcdir="src"
     	       destdir="bin"
     	  />
@@ -43,6 +44,7 @@
     </target>
 	
 	<target name="jar-test">
+		<mkdir dir="bin-test"/>
 	    <javac srcdir="src-test"
 	           destdir="bin-test"
 	     />
