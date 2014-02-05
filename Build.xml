@@ -15,14 +15,14 @@
     <!-- ================================= 
           target: Release              
          ================================= -->
-    <target name="Release" depends="jar" description="Create a jar file release">
+    <target name="Release" depends="jar, jar-test" description="Create a jar file release">
         <echo>Done.</echo>
     </target>
 
 	
 	
-	<target name="jni_header" depends="jar">
-		<javah outputfile="mcp2200-jni.h" classpath="*.jar">
+	<target name="jni_header">
+		<javah outputfile="src-c/mcp2200-jni.h" classpath="bin">
 			<class name="hu.mcp2200.MCP2200JNI" />
 		</javah>
 	</target>
@@ -31,6 +31,9 @@
           target: jar                      
          - - - - - - - - - - - - - - - - - -->
     <target name="jar">
+    	<javac srcdir="src"
+    	       destdir="bin"
+    	  />
     	<jar destfile="mcp2200-jni.jar" basedir="bin">
     		<manifest>
     			<attribute name="Implementation-Title" value="MCP2200 user mode driver JNI interface"/>
@@ -38,5 +41,19 @@
     		</manifest>
     	</jar>
     </target>
+	
+	<target name="jar-test">
+	    <javac srcdir="src-test"
+	           destdir="bin-test"
+	     />
+	    <jar destfile="mcp2200-jni-test.jar" basedir="bin-test">
+	    	<manifest>
+	    		<attribute name="Implementation-Title" value="MCP2200 user mode driver JNI interface test code"/>
+	    		<attribute name="Implementation-Version" value="0.1"/>
+	    		<attribute name="Main-Class" value="hu.mcp2200.test.MCP2200CLITest"/>
+	    		<attribute name="Class-Path" value="mcp2200-jni.jar"/>
+	    	</manifest>
+	    </jar>
+	</target>
 
 </project>
