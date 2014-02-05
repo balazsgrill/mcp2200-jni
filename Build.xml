@@ -43,10 +43,10 @@
     	</jar>
     </target>
 	
-	<target name="jar-test">
+	<target name="jar-test" depends="jar">
 		<mkdir dir="bin-test"/>
 	    <javac srcdir="src-test"
-	           destdir="bin-test"
+	           destdir="bin-test" classpath="mcp2200-jni.jar"
 	     />
 	    <jar destfile="mcp2200-jni-test.jar" basedir="bin-test">
 	    	<manifest>
