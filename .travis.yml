@@ -5,5 +5,4 @@ install:
 script:
   - chmod +x Build.sh
   - ./Build.sh 
-  - ant -f Build.xml
   - java -Djava.library.path=bin-c -jar mcp2200-jni-test.jar
