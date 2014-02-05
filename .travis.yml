@@ -1,9 +1,9 @@
 language: java
 install: 
   - sudo apt-get install libudev-dev libusb-1.0-0-dev
-  - cd ..; git clone https://github.com/balazsgrill/mcp2200.git
+  - cd ..; git clone https://github.com/balazsgrill/mcp2200.git; cd mcp2200-jni
 script:
   - chmod +x Build.sh
   - ./Build.sh 
-  - ant
+  - ant -f Build.xml
   - java -Djava.library.path=bin-c -jar mcp2200-jni-test.jar
