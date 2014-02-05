@@ -21,8 +21,8 @@
 
 	
 	
-	<target name="jni_header">
-		<javah outputfile="src-c/mcp2200-jni.h" classpath="bin">
+	<target name="jni_header" depends="jar">
+		<javah outputfile="src-c/mcp2200-jni.h" classpath="mcp2200-jni.jar">
 			<class name="hu.mcp2200.MCP2200JNI" />
 		</javah>
 	</target>
