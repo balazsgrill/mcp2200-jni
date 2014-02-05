@@ -5,3 +5,4 @@ export SO_EXT=".so"
 export LD_LIBS="-lrt -lpthread -ludev -lusb-1.0"
 export LD_OPT="-shared"
 make 
+mv bin-c/mcp2200-jni.so bin-c/libmcp2200-jni.so

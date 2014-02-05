@@ -19,7 +19,6 @@ public class MCP2200CLITest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.loadLibrary("libusb-1.0");
 		MCP2200JNI.getInstance().init();
 		
 		Collection<IMCP2200Device> devices = MCP2200Manager.detectDevices();
