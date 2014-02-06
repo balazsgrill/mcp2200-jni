@@ -81,5 +81,18 @@ public class MCP2200Connection implements IMCP2200Connection {
 	public IMCP2200Device getDevice() {
 		return device;
 	}
+
+	@Override
+	public void send(byte[] data) throws MCP2200Exception {
+		int r = MCP2200JNI.getInstance().send(connectionID, data);
+		if (r < 0) throw new MCP2200Exception(r);
+	}
+
+	@Override
+	public int receive(byte[] data) throws MCP2200Exception {
+		int r = MCP2200JNI.getInstance().receive(connectionID, data);
+		if (r < 0) throw new MCP2200Exception(r);
+		return r;
+	}
 	
 }

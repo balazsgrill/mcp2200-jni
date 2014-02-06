@@ -23,4 +23,8 @@ public interface IMCP2200Connection {
 	
 	public IMCP2200Device getDevice();
 	
+	public void send(byte[] data) throws MCP2200Exception;
+	
+	public int receive(byte[] data) throws MCP2200Exception;
+	
 }
