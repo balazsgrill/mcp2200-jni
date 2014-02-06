@@ -6,3 +6,5 @@ script:
   - chmod +x Build.sh
   - ./Build.sh 
   - java -Djava.library.path=bin-c -jar mcp2200-jni-test.jar
+  - touch a.log
+  - cat *.log
