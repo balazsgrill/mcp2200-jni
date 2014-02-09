@@ -15,7 +15,7 @@ public class MCP2200Exception extends Exception {
 			return "";
 
 		default:
-			return "Unknown error!";
+			return "Unknown error ("+code+")!";
 		}
 	}
 	
