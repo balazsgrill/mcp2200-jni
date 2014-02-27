@@ -39,8 +39,30 @@ public class MCP2200Exception extends Exception {
 	 */
 	private static final long serialVersionUID = 6956010085548095780L;
 
+	private final int code;
+	
 	public MCP2200Exception(int code) {
 		super(getMessage(code));
+		this.code = code;
+	}
+	
+	/**
+	 * Return the underlying LIBUSB/MCP2200 error code
+	 * 
+	 * @return
+	 */
+	public int getCode() {
+		return code;
+	}
+	
+	/**
+	 * Returns true if the error is caused by the absence of the device. If the result is false,
+	 * the connection may recover from the erroneous state, otherwise it is impossible.
+	 * 
+	 * @return
+	 */
+	public boolean isDeviceDisconnected(){
+		return code == -4;
 	}
 	
 }
