@@ -43,6 +43,19 @@
     	</jar>
     </target>
 	
+	<target name="javadoc" depends="jar">
+		<mkdir dir="docs/api"/>
+		<javadoc destdir="docs/api"
+	           author="true"
+	           version="true"
+	           use="true"
+	           windowtitle="MCP2200 JNI">
+			<packageset dir="src" defaultexcludes="yes">
+			      <include name="hu/mcp2200/**"/>
+			</packageset>
+		</javadoc>
+	</target>
+	
 	<target name="jar-test" depends="jar">
 		<mkdir dir="bin-test"/>
 	    <javac srcdir="src-test"

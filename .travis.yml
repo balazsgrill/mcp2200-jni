@@ -8,3 +8,5 @@ script:
   - java -Djava.library.path=bin-c -jar mcp2200-jni-test.jar
   - touch a.log
   - cat *.log
+after-script:
+  - ant -f Build.xml javadoc
