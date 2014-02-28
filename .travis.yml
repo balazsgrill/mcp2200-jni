@@ -4,9 +4,6 @@ install:
   - cd ..; git clone https://github.com/balazsgrill/mcp2200.git; cd mcp2200-jni
 script:
   - chmod +x Build.sh
-  - ./Build.sh 
-  - java -Djava.library.path=bin-c -jar mcp2200-jni-test.jar
-  - touch a.log
-  - cat *.log
+  - ./Build.sh
 after-script:
   - ant -f Build.xml javadoc
